@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="./no_violations.css">
+    <title>Нарушениям.Нет - Администратор</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="title_header">
+            <div class="blue_logo logo">НАРУШЕНИЙ</div>
+            <div class="red_logo logo">.НЕТ </div>
+        </div>
+    </header>
+    <main>
+        <h2 style="text-align: center; margin-top: 20px; color: #051AFF;">Панель администратора</h2>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Номер авто</th>
+                    <th>Описание нарушения</th>
+                    <th>Статус</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>19.10.2024</td>
+                    <td>А123ВС 174</td>
+                    <td>Парковка на газоне</td>
+                    <td><span style="color: orange;">Новое</span></td>
+                    <td class="admin-actions">
+                        <button class="btn-approve" onclick="alert('Заявление подтверждено!')">Подтвердить</button>
+                        <button class="btn-reject" onclick="alert('Заявление отклонено!')">Отклонить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15.10.2024</td>
+                    <td>В456ЕК 174</td>
+                    <td>Проезд на красный свет</td>
+                    <td><span style="color: green;">Подтверждено</span></td>
+                    <td class="admin-actions"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="./index1.html" class="button"
+                style="text-decoration: none; display: inline-block; line-height: 48px;">Выйти</a>
+        </div>
+    </main>
+</body>
+
+</html>

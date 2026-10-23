@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="./no_violations.css">
+    <title>Нарушениям.Нет - Регистрация</title>
+</head>
+
+<body>
+    <main>
+        <div class="r_container">
+            <div class="r_card_r">
+                <div class="r_title">
+                    <div class="blue_logo logo">НАРУШЕНИЙ</div>
+                    <div class="red_logo logo">.НЕТ </div>
+                </div>
+                <div class="auto_r">
+                    <p>Регистрация</p>
+                </div>
+
+                <!-- Добавлен novalidate, чтобы браузер не перекрывал нашу кастомную валидацию -->
+                <form id="regForm" novalidate>
+                    <div class="input">
+                        <div class="form-group">
+                            <input type="text" name="username" placeholder="Логин *" required>
+                            <div class="error-message">Пожалуйста, введите логин.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Пароль *" required>
+                            <div class="error-message">Пожалуйста, введите пароль.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="surname" placeholder="Фамилия *" required>
+                            <div class="error-message">Пожалуйста, введите фамилию.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Имя *" required>
+                            <div class="error-message">Пожалуйста, введите имя.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="patronymic" placeholder="Отчество">
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Телефон *" required>
+                            <div class="error-message">Введите корректный номер телефона.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email *" required>
+                            <div class="error-message">Введите корректный email.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="address" placeholder="Адрес *" required>
+                            <div class="error-message">Пожалуйста, введите адрес.</div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button_r" id="submitBtn">Создать аккаунт</button>
+                </form>
+
+                <div class="r_rtrt">
+                    <p>У Вас уже есть аккаунт? <span><a href="./index1.html" class="a">Войти</a></span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Скрипт валидации -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById('regForm');
+            const inputs = form.querySelectorAll('input[required]');
+
+            // Функции показа/скрытия ошибки
+            function showError(input) {
+                const group = input.closest('.form-group');
+                const errorDiv = group.querySelector('.error-message');
+                input.classList.add('invalid');
+                if (errorDiv) errorDiv.style.display = 'block';
+            }
+
+            function hideError(input) {
+                const group = input.closest('.form-group');
+                const errorDiv = group.querySelector('.error-message');
+                input.classList.remove('invalid');
+                if (errorDiv) errorDiv.style.display = 'none';
+            }
+
+            // Валидация Email и Телефона по регулярным выражениям из презентации
+            const emailRegex = /^[ \w]{1}[ \w-\.]*@[ \w-]+\.[ a-z]{2,4}$/i;
+            const phoneRegex = /^[\d\+][\d\(\)\ -]{4,14}$/; // Упрощенная проверка телефона
+
+            form.addEventListener('submit', function (event) {
+                let isValid = true;
+                let firstInvalid = null;
+
+                inputs.forEach(input => {
+                    let value = input.value.trim();
+                    let isFieldValid = true;
+
+                    if (value === '') {
+                        isFieldValid = false;
+                    } else if (input.id === 'email' && !emailRegex.test(value)) {
+                        isFieldValid = false;
+                        input.nextElementSibling.textContent = "Адрес эл. почты введен неправильно!";
+                    } else if (input.id === 'phone' && !phoneRegex.test(value)) {
+                        isFieldValid = false;
+                        input.nextElementSibling.textContent = "Номер телефона введен неправильно!";
+                    }
+
+                    if (!isFieldValid) {
+                        showError(input);
+                        isValid = false;
+                        if (!firstInvalid) firstInvalid = input;
+                    } else {
+                        hideError(input);
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault(); // Блокируем отправку
+                    if (firstInvalid) firstInvalid.focus();
+                } else {
+                    // Если всё ок, перенаправляем (имитация отправки)
+                    event.preventDefault();
+                    window.location.href = "index.html";
+                }
+            });
+
+            // Убираем ошибку при вводе
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    if (input.value.trim() !== '') hideError(input);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

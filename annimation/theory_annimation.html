@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задания по теме аннимация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./annimation.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="./annimation_theory.css">
+</head>
+
+<body>
+    <!-- шапка -->
+    <header>
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav>
+            <a href="../index.html">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="btn btn-back">← Назад к списку</a>
+        <div class="work-layout">
+            <div class="student-work-container">
+                <h2>Аннимация на CSS</h2>
+                <p>В этой работе я изучила основные элементы аннимация на CSS.</p>
+                <!-- Задание 1 -->
+                <div class="btn_css" id="btn_css">
+                    <p>Кнопка, изменяющая цвет при щелчке</p>
+                    <button>Нажми меня</button>
+                </div>
+                <!-- Задание 2 -->
+                <div class="btn1">
+                    <p>Кнопка, изменяющая цвет при наведении</p>
+                    <button id="btn1">Нажми меня</button>
+                </div>
+                <!-- Задание 3 -->
+                <div class="my-btn">
+                    <p>Кнопка, увеличивающуюся при нажатии</p>
+                    <button id="my-btn">Нажми меня</button>
+                </div>
+                <!-- Задание 4 -->
+                <div id="wrap1">
+                    <p>Наведите на меня курсор мыши</p>
+                </div>
+                <!-- Задание 5 -->
+                <div class="tooltippp">
+                    <p>Чтобы посмотреть как работает эта CSS3 всплывающая подсказка, наведите курсор
+                        <a href="#" class="tooltip yellow-tooltip" data-title="Это первая CSS подсказка">сюда</a>,
+                        <br> а чтобы получить другую подсказку,
+                        <a href="#" class="tooltip yellow-tooltip"
+                            data-title="Это вторая подсказка, созданная исключительно с помощью CSS3">наведите курсор
+                            сюда</a>.
+                    </p>
+                </div>
+                <!-- Задание 6 -->
+                <div class="container222">
+                    <div class="screen">
+                        <div class="face">
+                            <div class="eyes eyes-left"></div>
+                            <div class="eyes eyes-right"></div>
+                            <div class="mouth"></div>
+                            <div class="cheek cheek-left"></div>
+                            <div class="cheek cheek-right"></div>
+                        </div>
+                    </div>
+                    <div class="base"></div>
+                </div>
+                <!-- Задание грустный компьютер -->
+                <!-- Задание выпадающее меню -->
+                <ul class="nav">
+                    <li><a href="#">Пункт 1</a></li>
+                    <li><a href="#">Пункт 2</a></li>
+                    <li class="drop-menu">
+                        <a href="#">Пункт 3</a>
+                        <ul>
+                            <li><a href="#">Элемент 1</a></li>
+                            <li><a href="#">Элемент 2</a></li>
+                            <li><a href="#">Элемент 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Пункт 1</a></li>
+                    <li><a href="#">Пункт 2</a></li>
+                    <li><a href="#">Пункт 3</a></li>
+                    <li><a href="#">Пункт 4</a></li>
+                </ul>
+            </div>
+            <div class="work-info">
+                <h2>Оценка преподавателя</h2>
+                <p>Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+                <div class="grading-panel">
+                    <h4>Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <h4>Комментарий:</h4>
+                    <textarea id="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

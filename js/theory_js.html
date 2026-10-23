@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа №2 — Основы JavaScript</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="./js.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <div class="work-layout">
+
+            <!-- ЛЕВАЯ КОЛОНКА: -->
+            <section class="student-work-container">
+                <h2 class="work-title">Практическая работа №2: Основы JavaScript</h2>
+                <p class="text_work">
+                    В этой работе я изучил основы работы с DOM, вводом/выводом данных, циклами и функциями в JavaScript.
+                </p>
+
+                <!-- Контейнер для заданий -->
+                <div class="tasks-grid">
+
+                    <!-- Задания 1, 2, 3, 4 -->
+                    <div class="task-card">
+                        <h3>Задания 1, 2, 3, 4 (Вывод текста)</h3>
+                        <p>Вывод в тело документа и через alert.</p>
+                        <div id="task1-result" class="result-area">Тут появится текст...</div>
+                        <br>
+                        <button class="task-btn" onclick="runTasks1to4()">Запустить Alert (Привет, имя)</button>
+                    </div>
+
+                    <!-- Задания 5, 6 -->
+                    <div class="task-card">
+                        <h3>Задания 5, 6 (Мини-калькулятор)</h3>
+                        <p>Запрос двух чисел и вывод их суммы.</p>
+                        <button class="task-btn" onclick="runTask6()">Открыть калькулятор</button>
+                        <div id="calc-result" class="result-area" style="display:none;"></div>
+                    </div>
+
+                    <!-- Задания 7, 8 -->
+                    <div class="task-card">
+                        <h3>Задания 7, 8 (Пирамидки)</h3>
+                        <p>Рисование пирамидок из линий с помощью циклов.</p>
+                        <div class="result-area pyramid-container">
+                            <div id="pyramid-up"></div>
+                            <div id="pyramid-down"></div>
+                        </div>
+                    </div>
+
+                    <!-- Задания 10, 11 -->
+                    <div class="task-card">
+                        <h3>Задания 10, 11 (Таблица чисел)</h3>
+                        <p>Вывод чисел от 1 до 100 в виде таблицы.</p>
+                        <div id="numbers-table" class="result-area"></div>
+                    </div>
+
+                    <!-- Задание 12 -->
+                    <div class="task-card">
+                        <h3>Задание 12 (Таблица умножения)</h3>
+                        <p>Вывод таблицы умножения для введенного числа.</p>
+                        <button class="task-btn" onclick="runTask12()">Ввести число</button>
+                        <div id="mult-table-result" class="result-area" style="display:none;"></div>
+                    </div>
+
+                    <!-- Задание 13 -->
+                    <div class="task-card">
+                        <h3>Задание 13 (Функция умножения)</h3>
+                        <p>Функция, принимающая два числа и возвращающая их произведение.</p>
+                        <button class="task-btn" onclick="runTask13()">Умножить числа</button>
+                        <div id="multiply-result" class="result-area" style="display:none;"></div>
+                    </div>
+
+                    <!-- Задание 14 -->
+                    <div class="task-card">
+                        <h3>Задание 14 (Тренажер счета)</h3>
+                        <p>Случайные примеры на сложение.</p>
+                        <button class="task-btn" onclick="runTask14()">Начать тренировку</button>
+                        <div id="math-trainer-result" class="result-area" style="display:none;"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ПРАВАЯ КОЛОНКА: ОЦЕНКА -->
+            <aside class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">
+                    Поставьте оценку от 1 до 5 и оставьте комментарий.
+                </p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+
+                    <div class="stars" id="star-rating" aria-label="Оценка от 1 до 5">
+                        <span class="star" data-value="1" role="button" tabindex="0" aria-label="1 звезда">★</span>
+                        <span class="star" data-value="2" role="button" tabindex="0" aria-label="2 звезды">★</span>
+                        <span class="star" data-value="3" role="button" tabindex="0" aria-label="3 звезды">★</span>
+                        <span class="star" data-value="4" role="button" tabindex="0" aria-label="4 звезды">★</span>
+                        <span class="star" data-value="5" role="button" tabindex="0" aria-label="5 звёзд">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button type="button" class="btn btn-save-grade" onclick="saveGrade()">
+                        Сохранить оценку
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+    <script src="./js_tasks.js"></script>
+</body>
+
+</html>

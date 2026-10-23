@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: Диаграммы UML</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="./uml.css">
+    <link rel="stylesheet" href="../annimation/annimation_theory.css">
+</head>
+
+<body>
+    <!-- шапка -->
+    <header>
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav>
+            <a href="../index.html">Главная</a>
+        </nav>
+    </header>
+    <div class="container">
+        <a href="../index.html" class="btn btn-back">← Назад к списку</a>
+        <div class="work-layout">
+            <!-- ЛЕВАЯ КОЛОНКА:-->
+            <div class="student-work-container">
+                <h2>Диаграммы прецедентов (UML)</h2>
+                <p>В этой работе я изучила построение диаграмм прецедентов, определение акторов и их вариантов
+                    использования.</p>
+
+                <div class="uml-gallery">
+
+                    <!-- Карточка 1: Диаграмма Онлайн-магазина -->
+                    <div class="uml-card">
+                        <h3>1. Диаграмма прецедентов: Онлайн-магазин</h3>
+                        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+                            Акторы: Покупатель, Администратор. Включает процессы регистрации, просмотра товаров, работы
+                            с корзиной и управления товарами.
+                        </p>
+                        <img src="../img/uml1.png" alt="Диаграмма прецедентов - Онлайн магазин">
+                    </div>
+
+                    <!-- Карточка 2: Диаграмма с фильтрацией -->
+                    <div class="uml-card">
+                        <h3>2. Диаграмма прецедентов: Фильтрация и заказы</h3>
+                        <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+                            Акторы: Посетитель, Покупатель, Администратор. Включает связи с фильтрацией (цена,
+                            популярность, новизна) и просмотром статусов заказов.
+                        </p>
+                        <img src="../img/uml2.png" alt="Диаграмма прецедентов - Фильтрация и заказы">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: -->
+            <div class="work-info">
+                <h2>Оценка преподавателя</h2>
+                <p>Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+                <div class="grading-panel">
+                    <h4>Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <h4>Комментарий:</h4>
+                    <textarea id="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

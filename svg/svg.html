@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: SVG и Анимация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./svg.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="../annimation/annimation_theory.css">
+</head>
+
+<body>
+    <!-- шапка -->
+    <header>
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav>
+            <a href="../index.html">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="btn btn-back">← Назад к списку</a>
+
+        <div class="work-layout">
+            <!-- ЛЕВАЯ КОЛОНКА: -->
+            <div class="student-work-container">
+                <h2>Работа с SVG и анимацией</h2>
+                <p>В этой работе я изучила векторную графику, способы её вставки на страницу, а также различные виды
+                    анимации (CSS, SMIL).</p>
+
+                <div class="svg-gallery">
+
+                    <!-- Задание 14 (Слайд 14): Фигуры -->
+                    <div class="svg-card">
+                        <h3>1. Базовые фигуры SVG</h3>
+                        <p>Нарисуйте свои фигуры или трансформируйте предложенные (прямоугольники, окружности, эллипсы).
+                        </p>
+                        <div class="svg-demo-box">
+                            <svg width="200" height="150" viewBox="0 0 200 150">
+                                <!-- Квадрат -->
+                                <rect x="10" y="10" width="40" height="40" stroke="black" fill="transparent"
+                                    stroke-width="5" />
+                                <!-- Квадрат со скругленными углами -->
+                                <rect x="80" y="10" rx="10" ry="10" width="40" height="40" stroke="black"
+                                    fill="transparent" stroke-width="5" />
+                                <!-- Круг -->
+                                <circle cx="30" cy="100" r="20" stroke="red" fill="transparent" stroke-width="5" />
+                                <!-- Эллипс -->
+                                <ellipse cx="100" cy="100" rx="30" ry="10" stroke="red" fill="transparent"
+                                    stroke-width="5" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Задание 15 (Слайд 15): Смайлики -->
+                    <div class="svg-card">
+                        <h3>2. Два смайлика</h3>
+                        <p>Нарисуйте два смайлика: один с улыбкой, второй грустный. Разместите их на одном экране.</p>
+                        <div class="svg-demo-box">
+                            <svg width="300" height="150" viewBox="0 0 300 150">
+                                <!-- Улыбающийся смайлик -->
+                                <g transform="translate(50, 75)">
+                                    <circle cx="0" cy="0" r="40" stroke="#333" stroke-width="4" fill="yellow" />
+                                    <circle cx="-15" cy="-10" r="5" fill="#333" /> <!-- Глаз -->
+                                    <circle cx="15" cy="-10" r="5" fill="#333" /> <!-- Глаз -->
+                                    <path d="M -15 15 Q 0 30 15 15" stroke="#333" stroke-width="4" fill="transparent" />
+                                    <!-- Улыбка -->
+                                </g>
+                                <!-- Грустный смайлик -->
+                                <g transform="translate(200, 75)">
+                                    <circle cx="0" cy="0" r="40" stroke="#333" stroke-width="4" fill="#add8e6" />
+                                    <circle cx="-15" cy="-10" r="5" fill="#333" /> <!-- Глаз -->
+                                    <circle cx="15" cy="-10" r="5" fill="#333" /> <!-- Глаз -->
+                                    <path d="M -15 25 Q 0 10 15 25" stroke="#333" stroke-width="4" fill="transparent" />
+                                    <!-- Грусть -->
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Задание 22 (Слайд 22): Изменение цвета при наведении -->
+                    <div class="svg-card">
+                        <h3>3. Изменение цвета при наведении</h3>
+                        <p>Выполните изменение цвета рисунка при наведении (используется CSS hover).</p>
+                        <div class="svg-demo-box" style="cursor: pointer;">
+                            <svg class="hover-smile" width="120" height="120" viewBox="0 0 120 120">
+                                <path
+                                    d="M60,10 A50,50 0 1,0 60,110 A50,50 0 1,0 60,10 Z M40,45 A5,5 0 1,1 40,55 A5,5 0 1,1 40,45 Z M80,45 A5,5 0 1,1 80,55 A5,5 0 1,1 80,45 Z M35,70 Q60,95 85,70" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Слайд 17: SMIL Анимация -->
+                    <div class="svg-card">
+                        <h3>4. SVG-анимация (SMIL)</h3>
+                        <p>Анимация свойства круга с помощью тега &lt;animate&gt; (движение по оси X).</p>
+                        <div class="svg-demo-box">
+                            <svg width="100%" height="100" viewBox="0 0 500 100" preserveAspectRatio="xMinYMid meet">
+                                <circle cy="50" r="30" fill="#F4A261">
+                                    <animate attributeName="cx" from="50" to="450" dur="3s" repeatCount="indefinite" />
+                                </circle>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Задание (Слайд 32): Летающий шарик -->
+                    <div class="svg-card" id="balloon-container">
+                        <h3>5. Летающий шарик</h3>
+                        <p>Нарисуйте фон и шарик. При нажатии на кнопку шарик взлетает с помощью transition и transform.
+                        </p>
+
+                        <button class="balloon-btn" onclick="flyBalloon()">Лети</button>
+
+                        <div class="svg-demo-box" style="height: 250px; overflow: hidden; align-items: flex-end;">
+                            <svg width="200" height="250" viewBox="0 0 200 250">
+                                <g id="balloon-group">
+                                    <!-- Нитка -->
+                                    <path d="M100,160 Q90,180 100,200 T100,240" stroke="#555" stroke-width="2"
+                                        fill="transparent" />
+                                    <!-- Шарик -->
+                                    <circle cx="100" cy="100" r="50" fill="#D32F2F" />
+                                    <!-- Узелок -->
+                                    <polygon points="95,148 105,148 100,160" fill="#D32F2F" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Слайд 24, 25: CSS Анимация @keyframes -->
+                    <div class="svg-card">
+                        <h3>6. CSS Анимация по ключевым кадрам</h3>
+                        <p>Анимация независимо от событий (бесконечное подпрыгивание элемента).</p>
+                        <div class="svg-demo-box">
+                            <div class="bouncing-box"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: ОЦЕНКА -->
+            <div class="work-info">
+                <h2>Оценка преподавателя</h2>
+                <p>Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+                <div class="grading-panel">
+                    <h4>Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <h4>Комментарий:</h4>
+                    <textarea id="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Скрипт для шарика и звезд -->
+    <script>
+        // Функция для задания "Летающий шарик"
+        function flyBalloon() {
+            const container = document.getElementById('balloon-container');
+            container.classList.add('is-flying');
+
+            // Сбрасываем анимацию через 3 секунды, чтобы можно было нажать снова
+            setTimeout(() => {
+                container.classList.remove('is-flying');
+            }, 3000);
+        }
+    </script>
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+header,
+footer {
+    height: 100px;
+    width: 100%;
+}
+
+.title_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    background-color: #DDE8FF;
+}
+
+.title_header_s {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.logo {
+    font-size: 46px;
+    font-weight: 800;
+}
+
+.blue_logo {
+    color: #051AFF;
+}
+
+.red_logo {
+    color: #FF0000;
+}
+
+main {
+    min-height: calc(100vh - 100px);
+    width: 100%;
+    background-color: #DDE8FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.button {
+    width: 239px;
+    height: 48px;
+    background-color: #FF0000;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: #cc0000;
+}
+
+.main_btn {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* statements.html*/
+.card_catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Центрируем карточки */
+    gap: 30px;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card_block {
+    width: 380px;
+    min-height: 324px;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text {
+    font-size: 16px;
+}
+
+.card_number {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.id {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.text_card {
+    width: 100%;
+    line-height: 1.5;
+    color: #333;
+}
+
+.status {
+    margin-top: auto;
+    font-weight: bold;
+}
+
+/* Statement.html */
+.block_s {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form_s {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.input_s {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+/* --- СТРАНИЦЫ АВТОРИЗАЦИИ И РЕГИСТРАЦИИ --- */
+.r_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
+}
+
+.r_card {
+    width: 100%;
+    max-width: 500px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.r_card_r {
+    width: 100%;
+    max-width: 600px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.r_title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    background-color: #DDE8FF;
+}
+
+.auto_r {
+    font-size: 30px;
+    color: #051AFF;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.input input {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+.button_r {
+    margin-top: 30px;
+    background-color: #051AFF;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button_r:hover {
+    background-color: #0412b3;
+}
+
+.r_rtrt {
+    font-size: 18px;
+    color: #051AFF;
+    margin-top: 20px;
+}
+
+.r_rtrt .a {
+    color: white;
+    font-weight: bold;
+}
+
+/* --- ПАНЕЛЬ АДМИНИСТРАТОРА --- */
+.admin-table {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table th {
+    background-color: #051AFF;
+    color: white;
+}
+
+.admin-actions button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-approve {
+    background-color: #2ecc71;
+}
+
+.btn-reject {
+    background-color: #e74c3c;
+}
+
+/* ФОРМА */
+.form-group {
+    position: relative;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+input.invalid,
+textarea.invalid {
+    border-color: #e74c3c !important;
+    background-color: #fdf2f2;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Ссылки */
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn-back {
+    display: inline-block;
+    background-color: #F4A261;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s;
+    width: 170px;
+}
+
+.btn-back:hover {
+    background-color: #E76F51;
+}
+
+.work-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* --- ЛЕВАЯ КОЛОНКА  --- */
+.student-work-container {
+    flex: 1;
+    min-width: 0;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: 85vh;
+    /* Высота карточки с сайтом */
+}
+
+.project-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}

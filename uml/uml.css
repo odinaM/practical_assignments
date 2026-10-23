@@ -1,0 +1,27 @@
+.uml-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.uml-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.uml-card h3 {
+    margin-top: 0;
+    color: #1A2B4C;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.uml-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #f0f0f0;
+    display: block;
+}

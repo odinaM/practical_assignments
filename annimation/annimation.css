@@ -1,0 +1,160 @@
+/* Обертка для игры, чтобы центрировать элементы */
+.game-block {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Информация (Ходы / Найдено) */
+.info {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    background: var(--bg-color);
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    border: 1px solid var(--border-light);
+}
+
+.info span {
+    color: var(--accent-orange-dark);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* Сообщение о победе */
+.win {
+    font-size: 18px;
+    color: var(--accent-green);
+    font-weight: 800;
+    min-height: 28px;
+    margin: 10px 0;
+}
+
+/* Сетка поля */
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 90px);
+    gap: 12px;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* Карточки (Белые квадратики по умолчанию) */
+.card {
+    width: 90px;
+    height: 90px;
+    background: var(--card-bg);
+    /* Белый фон */
+    border: 2px solid var(--border-light);
+    /* Кремовая рамка */
+    border-radius: var(--radius-sm);
+    font-size: 40px;
+    font-weight: 800;
+    color: transparent;
+    /* Цифра скрыта */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, background 0.3s, border-color 0.3s;
+}
+
+/* Анимация 1: наведение */
+.card:hover {
+    transform: scale(1.08) translateY(-2px);
+    border-color: var(--accent-orange);
+}
+
+/* Открытая карточка (показываем цифру) */
+.card.open {
+    background: #FFF8F0;
+    /* Слегка кремовый */
+    color: var(--accent-orange-dark);
+    /* Оранжевая цифра */
+    border-color: var(--accent-orange);
+}
+
+/* Анимация 2: совпали (зеленые) */
+.card.matched {
+    background: var(--accent-green);
+    color: #fff;
+    border-color: var(--accent-green-dark);
+    cursor: default;
+    animation: pulse 0.5s ease 2;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* Анимация 3: ошибка (тряска) */
+.card.wrong {
+    background: #fff0f0;
+    color: #d9534f;
+    border-color: #d9534f;
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(-8px);
+    }
+
+    75% {
+        transform: translateX(8px);
+    }
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+    font-size: 14px;
+}
+
+.results-table th,
+.results-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.results-table th {
+    background: var(--accent-orange);
+    color: #fff;
+    font-weight: 800;
+}
+
+.results-table tbody tr:nth-child(even) {
+    background: #FFF8F0;
+}
+
+.results-table tbody tr:hover {
+    background: rgba(244, 164, 96, 0.15);
+}
+
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        font-size: 30px;
+    }
+}

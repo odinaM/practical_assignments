@@ -1,0 +1,155 @@
+ .svg-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+ }
+
+ .svg-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+ }
+
+ .svg-card h3 {
+    margin-top: 0;
+    color: #1A2B4C;
+    font-size: 18px;
+    margin-bottom: 10px;
+ }
+
+ .svg-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+ }
+
+ /* Контейнер для демонстрации SVG */
+ .svg-demo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 150px;
+    border: 1px dashed #ccc;
+    overflow: hidden;
+    position: relative;
+ }
+
+ /* --- СТИЛИ ДЛЯ ПРАВОЙ КОЛОНКИ (ОЦЕНКА) --- */
+ #comment-box {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 100px;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #fff;
+    resize: vertical;
+    outline: none;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+ }
+
+ #comment-box:focus {
+    border-color: #F4A261;
+ }
+
+ .btn-save {
+    width: 100%;
+    padding: 12px;
+    background-color: #F4A261;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+ }
+
+ .btn-save:hover {
+    background-color: #e09352;
+ }
+
+ .stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #d3d3d3;
+    cursor: pointer;
+ }
+
+ .stars .star.active,
+ .stars .star:hover {
+     color: #F4A261;
+}
+
+
+ /* Задание 1: Изменение цвета при наведении */
+ .hover-smile path {
+    fill: transparent;
+    stroke: #333;
+    stroke-width: 15;
+    transition: fill 0.3s, stroke 0.3s;
+ }
+
+ .hover-smile:hover path {
+    fill: #a8e6cf;
+    stroke: #2ecc71;
+ }
+
+ /* Задание 2: SMIL Анимация */
+ .anim-circle {
+    animation: pulse 2s infinite alternate;
+ }
+
+ /* Задание 3: Летающий шарик */
+ .balloon-btn {
+    padding: 10px 20px;
+    background: #F4A261;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+ }
+
+ #balloon-group {
+    transition: transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+    transform-origin: center bottom;
+ }
+
+ .is-flying #balloon-group {
+    transform: translateY(-150px) scale(0.8);
+     /* Улетает вверх и уменьшается */
+ }
+
+ /* Задание 4: CSS Keyframes (прыгающий квадрат) */
+ @keyframes bounce {
+
+     0%,
+     100% {
+        transform: translateY(0);
+     }
+
+     50% {
+        transform: translateY(-40px);
+     }
+ }
+
+ .bouncing-box {
+    width: 50px;
+    height: 50px;
+    background-color: #e74c3c;
+    border-radius: 8px;
+    animation: bounce 1s infinite ease-in-out;
+ }

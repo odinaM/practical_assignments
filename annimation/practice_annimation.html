@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа №3: Анимация на CSS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./annimation.css">
+    <link rel="stylesheet" href="../forms/form.css">
+</head>
+
+<body>
+    <!-- шапка -->
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Кнопка "Назад" -->
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <!-- Макет из двух колонок -->
+        <div class="work-layout">
+
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div class="student-work-container">
+                <h2 class="work-title">Практическая работа №3: Анимация на CSS</h2>
+                <p class="text_work">В этой работе я изучил основы CSS-анимаций на примере игры «Подбери пару».</p>
+
+                <!-- ЭТАП 1: Игра -->
+                <div class="step active" id="step-game">
+                    <div class="game-block">
+                        <p class="task-title">Подбери пару</p>
+                        <div class="info">
+                            Ходы: <span id="moves">0</span> | Найдено: <span id="found">0</span>/8
+                        </div>
+                        <div class="win" id="winMsg"></div>
+                        <div class="board" id="board"></div>
+                        <button onclick="initGame()" class="btn-task">Начать заново</button>
+                    </div>
+                </div>
+
+                <!-- ЭТАП 2: Таблица результатов (Скрыта изначально) -->
+                <div class="step" id="step-results">
+                    <div class="task-block">
+                        <p class="task-title">Результаты игр:</p>
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Попытка</th>
+                                    <th>Дата и время игры</th>
+                                    <th>Ходы</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results"></tbody>
+                        </table>
+                        <!-- Кнопка для перехода к следующему этапу (оценке) -->
+                        <button class="btn btn-save" onclick="nextStep('step-rating')" style="margin-top: 15px;">Перейти
+                            к оценке</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА (Оценка преподавателя) -->
+            <!-- ЭТАП 3: Оценка (Скрыта изначально) -->
+            <div class="work-info step" id="step-rating">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+    <script src="./practice_annimation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа — JavaScript</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="./js.css">
+</head>
+
+<body>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <div class="work-layout">
+
+            <!-- Левая колонка: задания -->
+            <section class="student-work-container">
+
+                <h2 class="work-title">Практическая работа: JavaScript</h2>
+
+                <p class="text_work">
+                    В этой работе представлены задания на использование
+                    JavaScript, математических операций и циклов.
+                </p>
+
+                <div class="student-work">
+
+                    <!-- Задание 1.1 -->
+                    <section class="task-card">
+                        <h3 class="task-title">Задание 1.1</h3>
+
+                        <p class="task-description">
+                            Проверка подобия прямоугольных треугольников по катетам.
+                        </p>
+
+                        <button type="button" id="button" class="task-button">
+                            Проверить подобие
+                        </button>
+
+                        <p id="triangle-result" class="task-result"></p>
+                    </section>
+
+                    <!-- Задание 1.2 -->
+                    <section class="task-card">
+                        <h3 class="task-title">Задание 1.2</h3>
+
+                        <p class="task-description">
+                            Поиск наибольшей цифры в натуральном числе.
+                        </p>
+
+                        <button type="button" id="button2" class="task-button">
+                            Найти наибольшую цифру
+                        </button>
+
+                        <p id="number-result" class="task-result"></p>
+                    </section>
+
+                    <!-- Задание 1.3 -->
+                    <section class="task-card">
+                        <h3 class="task-title">Задание 1.3</h3>
+
+                        <p class="task-description">
+                            Таблица умножения от 1 до 10.
+                        </p>
+
+                        <div class="task-buttons">
+                            <button type="button" id="button3" class="task-button">
+                                Показать таблицу
+                            </button>
+
+                            <button type="button" id="close-table" class="task-button close-button">
+                                Закрыть таблицу
+                            </button>
+                        </div>
+
+                        <!-- Единственный контейнер для таблицы -->
+                        <div id="table-container" class="table-container"></div>
+                    </section>
+
+                </div>
+            </section>
+
+            <!-- Правая колонка: оценка преподавателя -->
+            <aside class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+
+                <p class="work-info-text">
+                    Поставьте оценку от 1 до 5 и оставьте комментарий.
+                </p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+
+                    <textarea
+                        id="comment-box"
+                        class="comment-box"
+                        placeholder="Напишите отзыв о работе..."
+                    ></textarea>
+
+                    <button
+                        type="button"
+                        class="btn btn-save-grade"
+                        onclick="saveGrade()"
+                    >
+                        Сохранить оценку
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <script>
+        // Задание 1.1. Проверка подобия треугольников
+        document.getElementById("button").addEventListener("click", () => {
+            const a = Number(prompt("Введите первый катет первого треугольника:"));
+            const b = Number(prompt("Введите второй катет первого треугольника:"));
+            const c = Number(prompt("Введите первый катет второго треугольника:"));
+            const d = Number(prompt("Введите второй катет второго треугольника:"));
+
+            const result = document.getElementById("triangle-result");
+
+            if ([a, b, c, d].some(x => !Number.isFinite(x) || x <= 0)) {
+                result.textContent = "Введите положительные числа.";
+                return;
+            }
+
+            const min1 = Math.min(a, b);
+            const max1 = Math.max(a, b);
+            const min2 = Math.min(c, d);
+            const max2 = Math.max(c, d);
+
+            if (min1 * max2 === min2 * max1) {
+                result.textContent = "Треугольники подобны!";
+            } else {
+                result.textContent = "Треугольники не подобны.";
+            }
+        });
+
+        // Задание 1.2. Поиск наибольшей цифры
+        document.getElementById("button2").addEventListener("click", () => {
+            const input = prompt("Введите натуральное число:");
+
+            if (input === null) {
+                return;
+            }
+
+            const result = document.getElementById("number-result");
+
+            if (!/^\d+$/.test(input) || !/[1-9]/.test(input)) {
+                result.textContent = "Введите натуральное число.";
+                return;
+            }
+
+            let max = 0;
+
+            for (const digit of input) {
+                if (Number(digit) > max) {
+                    max = Number(digit);
+                }
+            }
+
+            result.textContent = max + " — наибольшая цифра числа.";
+        });
+
+        // Задание 1.3. Показать таблицу умножения
+        document.getElementById("button3").addEventListener("click", () => {
+            const container = document.getElementById("table-container");
+            const table = document.createElement("table");
+
+            table.className = "multiplication-table";
+
+            for (let j = 1; j <= 10; j++) {
+                const row = document.createElement("tr");
+
+                for (let i = 1; i <= 10; i++) {
+                    const cell = document.createElement("td");
+                    cell.textContent = `${i} × ${j} = ${i * j}`;
+                    row.appendChild(cell);
+                }
+
+                table.appendChild(row);
+            }
+
+            container.replaceChildren(table);
+        });
+
+        // Задание 1.3. Закрыть таблицу
+        document.getElementById("close-table").addEventListener("click", () => {
+            document.getElementById("table-container").replaceChildren();
+        });
+    </script>
+
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задания по теме: Формы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./form.css">
+</head>
+
+<body>
+
+    <!-- шапка -->
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Кнопка "Назад" -->
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <!-- Макет из двух колонок -->
+        <div class="work-layout">
+
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div class="student-work-container">
+                <h2 class="work-title">Практическая работа №1: Работа с формами</h2>
+                <p class="text_work">В этой работе я изучил основные элементы HTML-форм.</p>
+
+                <div class="student-work">
+
+                    <!-- ЗАДАНИЕ 1 -->
+                    <form name="form1" class="task-form">
+                        <p class="task-title">Задание 1. Текстовое поле:</p>
+                        <input type="text" name="t1" size="20" maxlength="50" value="Введите текст"
+                            class="task task-input">
+                    </form>
+
+                    <!-- ЗАДАНИЕ 2 -->
+                    <form name="form2" class="task-form">
+                        <p class="task-title">Задание 2. Поля для пароля:</p>
+                        <input type="password" name="t2" size="20" maxlength="50" value="👤" class="task task-input">
+                        <input type="password" name="t3" size="20" maxlength="50" value="🔒" class="task task-input">
+                    </form>
+
+                    <!-- ЗАДАНИЕ 3 -->
+                    <form name="forma1" class="task-form">
+                        <p class="task-title">Задание 3. Ваши любимые предметы:</p>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="checkbox"> Математика
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="checkbox"> Литература
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" class="checkbox"> Физическая культура
+                        </label>
+                    </form>
+
+                    <!-- ЗАДАНИЕ 4 -->
+                    <form name="forma2" class="task-form">
+                        <p class="task-title">Задание 4. Укажите ваш пол:</p>
+                        <label class="checkbox-label">
+                            <input type="radio" name="sex" value="man" class="checkbox"> мужской
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="radio" name="sex" value="woman" class="checkbox"> женский
+                        </label>
+                    </form>
+
+                    <!-- ЗАДАНИЕ 5 -->
+                    <div class="task-block">
+                        <p class="task-title">Задание 5. Кнопки:</p>
+                        <div class="task5-wrap">
+                            <button class="task5">Кнопка с текстом</button>
+                            <button class="task5">
+                                <img src="../img/zont.png" alt="зонтик" width="30" height="30" class="task5-icon">
+                                Кнопка с зонтиком
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ЗАДАНИЕ 6 -->
+                    <form name="forma3" class="task-form">
+                        <p class="task-title">Задание 6. Загрузка файла:</p>
+                        <input type="file" name="load" class="file">
+                    </form>
+
+                    <!-- ЗАДАНИЕ 7 -->
+                    <form name="forma4" class="task-form task7">
+                        <p class="task-title">Задание 7. Выбор языка и времени:</p>
+
+                        <p class="task7-label">Какой язык вы хотите изучать:</p>
+                        <select name="language" size="1" class="task7-select">
+                            <option selected value="html">html</option>
+                            <option value="php">php</option>
+                            <option value="java">java</option>
+                        </select>
+
+                        <p class="task7-label">Какое время вы готовы на это потратить:</p>
+                        <select name="time" size="3" class="task7-select task7-select-list">
+                            <option selected value="1">1 месяц</option>
+                            <option value="2">2 месяца</option>
+                            <option value="3">3 месяца</option>
+                        </select>
+
+                        <p class="task7-label">Какие дни недели для занятий вас устроят (ctrl):</p>
+                        <select name="day" size="7" multiple class="task7-select task7-select-multiple">
+                            <option selected value="mon">понедельник</option>
+                            <option value="tue">вторник</option>
+                            <option value="wen">среда</option>
+                            <option selected value="thu">четверг</option>
+                            <option value="fri">пятница</option>
+                            <option value="sat">суббота</option>
+                            <option value="san">воскресенье</option>
+                        </select>
+                    </form>
+
+                    <!-- ЗАДАНИЕ 8 -->
+                    <form name="contact_form" method="post" action="dumb.htm" onsubmit="return validate_form();"
+                        class="task-form">
+                        <p class="task-title">Задание 8. Проверка имени:</p>
+                        <p class="task8-row">
+                            Ваше имя:
+                            <input type="text" name="contact_name" class="task-input">
+                        </p>
+                        <input type="submit" name="send" value="Отправить данные" class="btn-task">
+                    </form>
+
+                    <!-- ЗАДАНИЕ 9 -->
+                    <div class="task-block">
+                        <p class="task-title">Задание 9. Сколько будет 2 + 2?</p>
+                        <form action="" name="calc" class="task9-form">
+                            <input name="ancwer" class="task-input">
+                            <input type="button" value="Готово" onclick="check();" class="btn-task">
+                        </form>
+                    </div>
+
+                    <!-- ЗАДАНИЕ 10 -->
+                    <div class="task-block">
+                        <p class="task-title">Задание 10. Движущаяся кнопка:</p>
+                        <form name="forma_1" class="task10-form">
+                            <input type="button" value="Пуск" name="beg_but" class="b_but btn-task" onclick="beg()">
+                        </form>
+                        <form name="forma_2" class="task10-form">
+                            <input type="button" value="Кнопка" name="beg_2" class="btn-moving btn-task" id="btn"
+                                onclick="dvig()">
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА -->
+            <div class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const radio = document.querySelector('input[type="radio"]');
+        const checkbox = document.querySelector('input[type="checkbox"]');
+        radio.checked = false;
+        checkbox.checked = false;
+    </script>
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>

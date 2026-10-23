@@ -1,0 +1,593 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    color: #202938;
+    background: #FDF5E6;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: 'Nunito', sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn_css,
+.btn1,
+.my-btn,
+#wrap1,
+.tooltippp {
+    margin: 0 0 28px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.btn_css:hover,
+.btn1:hover,
+.my-btn:hover,
+#wrap1:hover,
+.tooltippp:hover {
+    box-shadow: none;
+}
+
+.btn_css p,
+.btn1 p,
+.my-btn p,
+#wrap1 p,
+.tooltippp p {
+    margin: 0 0 14px;
+    color: #202938;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+.btn_css button,
+.btn1 button,
+.my-btn button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 12px 24px;
+
+    border: none;
+    border-radius: 28px;
+    background: #F4A460;
+    color: #202938;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* Общий эффект наведения */
+.btn_css button:hover,
+.btn1 button:hover,
+.my-btn button:hover {
+    box-shadow: 0 4px 12px rgba(232, 148, 74, 0.2);
+}
+
+/* Задание 1: изменение цвета при нажатии */
+.btn_css button:active {
+    background: #2E8B57;
+    color: #FFFFFF;
+    transform: scale(0.97);
+}
+
+/* Задание 2: изменение цвета при наведении */
+.btn1 button:hover {
+    background: #2E8B57;
+    color: #FFFFFF;
+}
+
+/* Задание 3: увеличение при нажатии */
+.my-btn button:active {
+    transform: scale(1.12);
+}
+
+
+#wrap1 {
+    min-height: 120px;
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    background: #FFF8EF;
+    border: 1px solid #F0E5D5;
+    border-radius: 15px;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+#wrap1 p {
+    margin: 0;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+#wrap1:hover {
+    background: #FFF0DC;
+    border-color: #F4A460;
+}
+
+#wrap1:hover p {
+    color: #C56B25;
+    transform: scale(1.04);
+}
+
+.tooltippp {
+    line-height: 1.8;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+
+    color: #C56B25;
+    font-weight: 800;
+    text-decoration: none;
+
+    border-bottom: 2px dashed #F4A460;
+    cursor: help;
+}
+
+.tooltip:hover {
+    color: #9C531B;
+}
+
+.tooltip::after {
+    content: attr(data-title);
+
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+
+    width: max-content;
+    max-width: 260px;
+    padding: 12px 15px;
+
+    transform: translate(-50%, 5px);
+
+    border-radius: 10px;
+    background: #202938;
+    color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(45, 55, 72, 0.18);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 20;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.tooltip:hover::after,
+.tooltip:focus::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.container222 {
+    min-height: 250px;
+    margin: 25px auto 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Экран компьютера */
+.container222 .screen {
+    position: relative;
+
+    width: 220px;
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #2D3748;
+    border: 8px solid #64748B;
+    border-radius: 15px;
+
+    box-shadow: 0 8px 18px rgba(45, 55, 72, 0.15);
+}
+
+/* Лицо на экране */
+.container222 .face {
+    position: relative;
+    width: 145px;
+    height: 100px;
+}
+
+/* Глаза */
+.container222 .eyes {
+    position: absolute;
+    top: 24px;
+
+    width: 15px;
+    height: 19px;
+
+    border-radius: 50%;
+    background: #F6AD55;
+
+    animation: eyeBlink 3s infinite;
+}
+
+.container222 .eyes-left {
+    left: 35px;
+}
+
+.container222 .eyes-right {
+    right: 35px;
+}
+
+/* Рот */
+.container222 .mouth {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+
+    width: 42px;
+    height: 18px;
+
+    transform: translateX(-50%);
+
+    border-bottom: 4px solid #F6AD55;
+    border-radius: 0 0 50% 50%;
+}
+
+/* Щёки */
+.container222 .cheek {
+    position: absolute;
+    top: 53px;
+
+    width: 18px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: #F4A460;
+    opacity: 0.75;
+}
+
+.container222 .cheek-left {
+    left: 12px;
+}
+
+.container222 .cheek-right {
+    right: 12px;
+}
+
+/* Подставка */
+.container222 .base {
+    position: relative;
+    width: 70px;
+    height: 15px;
+
+    background: #A0AEC0;
+    border-radius: 0 0 8px 8px;
+}
+
+.container222 .base::after {
+    content: "";
+
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+
+    width: 110px;
+    height: 8px;
+
+    transform: translateX(-50%);
+
+    background: #718096;
+    border-radius: 5px;
+}
+
+/* Моргание глаз */
+@keyframes eyeBlink {
+
+    0%,
+    44%,
+    48%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    46% {
+        transform: scaleY(0.1);
+    }
+}
+
+.student-work-container ul.nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+
+    margin: 25px 0 0;
+    padding: 10px;
+
+    list-style: none;
+
+    background: #FFF8EF;
+    border: 1px solid #F0E5D5;
+    border-radius: 14px;
+}
+
+.student-work-container ul.nav li {
+    position: relative;
+    list-style: none;
+}
+
+.student-work-container ul.nav li a {
+    display: block;
+    padding: 11px 14px;
+
+    border-radius: 9px;
+    color: #4A5568;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.student-work-container ul.nav li a:hover {
+    background: #F4A460;
+    color: #FFFFFF;
+}
+
+/* Выпадающий список */
+.student-work-container ul.nav li ul {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    min-width: 170px;
+    margin: 0;
+    padding: 7px;
+
+    list-style: none;
+
+    background: #FFFFFF;
+    border: 1px solid #F0E5D5;
+    border-radius: 12px;
+
+    box-shadow: 0 8px 20px rgba(45, 55, 72, 0.12);
+    z-index: 30;
+}
+
+.student-work-container ul.nav li.drop-menu:hover>ul,
+.student-work-container ul.nav li.drop-menu:focus-within>ul {
+    display: block;
+}
+
+.student-work-container ul.nav li ul li a {
+    padding: 10px 12px;
+    white-space: nowrap;
+}
+
+.work-info {
+    position: static;
+}
+
+.grading-panel {
+    width: 100%;
+    margin-top: 22px;
+    padding: 24px;
+
+    background: #FFF8F1;
+    border: none;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.grading-panel h4 {
+    margin: 0 0 16px;
+    color: #202938;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.grading-panel h4:not(:first-child) {
+    margin-top: 26px;
+}
+
+/* Звёзды */
+.stars {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin: 12px 0 28px;
+}
+
+.star {
+    color: #CBD5E0;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.star:hover {
+    color: #F4A460;
+    transform: scale(1.12);
+}
+
+.star.active,
+.star.selected {
+    color: #F4A460;
+}
+
+/* Поле комментария */
+#comment-box {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    padding: 14px;
+
+    resize: vertical;
+
+    border: 1px solid #E2D8C8;
+    border-radius: 10px;
+    outline: none;
+
+    background: #FFFFFF;
+    color: #202938;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+#comment-box:focus {
+    border-color: #F4A460;
+    box-shadow: 0 0 0 3px rgba(244, 164, 96, 0.14);
+}
+
+#comment-box::placeholder {
+    color: #A0AEC0;
+}
+
+/* Кнопка сохранения */
+.btn-save {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 20px;
+
+    border: none;
+    border-radius: 28px;
+
+    background: #F4A460;
+    color: #FFFFFF;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-save:hover {
+    background: #E8944A;
+    transform: translateY(-1px);
+}
+
+.btn-save:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: calc(100% - 40px);
+    }
+
+    .work-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        padding: 26px;
+    }
+
+    .work-info {
+        padding-top: 26px;
+        border-top: 1px solid #F0E5D5;
+    }
+}
+
+@media (max-width: 520px) {
+    header {
+        padding: 16px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    header nav {
+        gap: 14px;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+        margin-top: 16px;
+    }
+
+    .work-layout {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .student-work-container>h2,
+    .work-info>h2 {
+        font-size: 23px;
+        line-height: 1.45;
+    }
+
+    .grading-panel {
+        padding: 18px;
+    }
+
+    .student-work-container ul.nav {
+        gap: 3px;
+        padding: 7px;
+    }
+
+    .student-work-container ul.nav li a {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .container222 .screen {
+        max-width: 100%;
+    }
+}

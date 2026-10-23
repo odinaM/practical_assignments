@@ -1,0 +1,180 @@
+:root {
+    --bg-color: #FDF5E6;
+    /* Светло-персиковый фон */
+    --card-bg: #FFFFFF;
+    /* Белый для карточек */
+    --text-main: #333333;
+    /* Темно-серый текст */
+    --text-muted: #777777;
+    /* Серый текст */
+    --accent-orange: #F4A460;
+    /* Песочный акцент */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --radius: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Шапка */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--bg-color);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent-orange);
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-orange);
+}
+
+/* Основной контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Блок информации (Hero) */
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    background: #FFF8F0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 18px;
+}
+
+/* Сетка и карточки (генерация через JS в #cards-container) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+/* Статусы внутри карточек */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+
+.status-badge.graded {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-badge.pending {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+/* Общие стили кнопок (если они используются внутри карточек) */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #e08e45;
+}
+
+/* Адаптивность для главной страницы */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}

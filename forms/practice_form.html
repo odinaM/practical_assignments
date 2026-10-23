@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа №1 — Формы</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+        <div class="work-layout">
+            <!-- Левая колонка: игра -->
+            <section class="student-work-container">
+                <h2 class="work-title">Практическая работа №1: Работа с формами</h2>
+                <p class="text_work">
+                    В этой работе я изучил основные элементы HTML-форм.
+                </p>
+
+                <div class="student-work game-container">
+
+                    <!-- Экран настройки -->
+                    <section id="screen-setup" class="game-screen">
+                        <h3 class="game-title">Угадайка</h3>
+                        <p class="game-subtitle">Выберите диапазон чисел</p>
+
+                        <div class="range-fields">
+                            <div class="field-group">
+                                <label class="game-label" for="num1">От</label>
+                                <input type="number" id="num1" class="game-input" placeholder="0" value="0">
+                            </div>
+
+                            <div class="field-group">
+                                <label class="game-label" for="num2">До</label>
+                                <input type="number" id="num2" class="game-input" placeholder="100" value="100">
+                            </div>
+                        </div>
+
+                        <p id="errorMessage" class="game-error" role="alert"></p>
+
+                        <div class="game-buttons">
+                            <button type="button" class="btn-clear" id="clearBtn">
+                                Очистить
+                            </button>
+                            <button type="button" class="btn-save" id="saveBtn">
+                                Сохранить
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Экран игры -->
+                    <section id="screen-game" class="game-screen hidden">
+                        <h3 class="game-title">Игра началась!</h3>
+                        <p class="game-subtitle">
+                            Попробуйте угадать загаданное число
+                        </p>
+
+                        <p class="range-hint">
+                            Диапазон: <strong id="rangeText">0–100</strong>
+                        </p>
+
+                        <form id="guessForm" class="guess-form">
+                            <label class="game-label" for="userGuess">
+                                Ваш вариант
+                            </label>
+
+                            <div class="guess-row">
+                                <input type="number" id="userGuess" class="game-input" placeholder="Введите число"
+                                    required>
+                                <button type="submit" id="goBtn" class="btn-go">
+                                    Go
+                                </button>
+                            </div>
+                        </form>
+
+                        <div id="resultBox" class="result-box" aria-live="polite">
+                            <p id="resultMessage" class="game-result">
+                                Удачи!
+                            </p>
+                        </div>
+
+                        <p class="game-attempts">
+                            Попыток: <span id="attemptsCount">0</span>
+                        </p>
+
+                        <button type="button" id="backBtn" class="btn-clear">
+                            Начать заново
+                        </button>
+                    </section>
+
+                    <!-- Экран победы -->
+                    <section id="screen-win" class="game-screen hidden">
+                        <div class="win-icon">🎉</div>
+                        <h3 class="game-title">Вы угадали!</h3>
+
+                        <p class="game-subtitle">
+                            Вы справились за
+                            <strong id="finalAttempts">0</strong>
+                            попыток.
+                        </p>
+
+                        <p class="game-subtitle">
+                            Введите имя, чтобы сохранить результат.
+                        </p>
+
+                        <form id="resultForm" class="result-form">
+                            <label class="game-label" for="userName">
+                                Ваше имя
+                            </label>
+
+                            <input type="text" id="userName" class="game-input" placeholder="Введите имя" maxlength="40"
+                                required>
+
+                            <button type="submit" class="btn-save result-save">
+                                Сохранить результат
+                            </button>
+                        </form>
+
+                        <p id="saveMessage" class="save-message" aria-live="polite"></p>
+
+                        <div class="results-block">
+                            <h4 class="results-title">Лучшие результаты</h4>
+                            <ul id="results-list" class="results-list"></ul>
+                        </div>
+
+                        <button type="button" id="restartBtn" class="btn-restart">
+                            Играть снова
+                        </button>
+                    </section>
+
+                </div>
+            </section>
+
+            <!-- Правая колонка: оценка преподавателя -->
+            <aside class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">
+                    Поставьте оценку от 1 до 5 и оставьте комментарий.
+                </p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+
+                    <div class="stars" id="star-rating" aria-label="Оценка от 1 до 5">
+                        <span class="star" data-value="1" role="button" tabindex="0" aria-label="1 звезда">★</span>
+                        <span class="star" data-value="2" role="button" tabindex="0" aria-label="2 звезды">★</span>
+                        <span class="star" data-value="3" role="button" tabindex="0" aria-label="3 звезды">★</span>
+                        <span class="star" data-value="4" role="button" tabindex="0" aria-label="4 звезды">★</span>
+                        <span class="star" data-value="5" role="button" tabindex="0" aria-label="5 звёзд">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button type="button" class="btn btn-save-grade" onclick="saveGrade()">
+                        Сохранить оценку
+                    </button>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+    <script src="./form.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: Портал "Нарушениям.Нет"</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="../annimation/annimation_theory.css">
+    <link rel="stylesheet" href="./no_violations.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="../index.html" class="btn-back">← Назад к списку</a>
+
+        <div class="work-layout">
+            <!-- ЛЕВАЯ КОЛОНКА: ВСТРОЕННЫЙ САЙТ -->
+            <div class="student-work-container">
+                <!-- Вставляем главную страницу сайта (index.html) -->
+                <iframe src="./index1.html" class="project-iframe" title="Портал Нарушениям.Нет"></iframe>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: ОЦЕНКА -->
+            <div class="work-info">
+                <h2>Оценка преподавателя</h2>
+                <p>Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+                <div class="grading-panel">
+                    <h4>Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <h4>Комментарий:</h4>
+                    <textarea id="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+                    <button class="btn btn-save" onclick="alert('Оценка сохранена!')">Сохранить оценку</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Простой скрипт для звездочек -->
+    <script>
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function () {
+                let value = this.getAttribute('data-value');
+                document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
+                for (let i = 1; i <= value; i++) {
+                    document.querySelector(`.star[data-value="${i}"]`).classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
