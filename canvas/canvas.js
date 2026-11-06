@@ -146,3 +146,154 @@ function drawHouses() {
   drawOneHouse(ctx3);
   ctx3.restore();
 }
+
+// ==========================================
+// ЗАДАНИЕ 1: Квадраты
+// ==========================================
+function drawSquares() {
+  const canvas = document.getElementById("canvas-squares");
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const startX = 30,
+    startY = 30,
+    sizes = [30, 50, 70, 90],
+    spacing = 20;
+  let currentX = startX;
+
+  ctx.lineWidth = 3;
+  ctx.strokeStyle = "#333";
+
+  sizes.forEach((size) => {
+    ctx.strokeRect(currentX, startY, size, size);
+    ctx.fillStyle = "#777";
+    ctx.font = "12px Nunito";
+    ctx.textAlign = "center";
+    ctx.fillText(`${size}x${size}`, currentX + size / 2, startY + size + 20);
+    currentX += size + spacing;
+  });
+}
+
+// ==========================================
+// ЗАДАНИЕ 2: Дома
+// ==========================================
+function drawOneHouse(ctx) {
+  ctx.fillStyle = "#F4A460";
+  ctx.fillRect(-40, -20, 80, 60);
+  ctx.strokeRect(-40, -20, 80, 60);
+  ctx.beginPath();
+  ctx.moveTo(-50, -20);
+  ctx.lineTo(0, -60);
+  ctx.lineTo(50, -20);
+  ctx.closePath();
+  ctx.fillStyle = "#d9534f";
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = "#8B4513";
+  ctx.fillRect(-15, 5, 20, 35);
+  ctx.strokeRect(-15, 5, 20, 35);
+  ctx.fillStyle = "#87CEEB";
+  ctx.fillRect(10, -5, 20, 20);
+  ctx.strokeRect(10, -5, 20, 20);
+  ctx.beginPath();
+  ctx.moveTo(20, -5);
+  ctx.lineTo(20, 15);
+  ctx.moveTo(10, 5);
+  ctx.lineTo(30, 5);
+  ctx.stroke();
+  ctx.fillStyle = "#d9534f";
+  ctx.fillRect(20, -60, 15, 25);
+  ctx.strokeRect(20, -60, 15, 25);
+}
+
+function drawHouses() {
+  const scales = [1, 0.5, 2];
+  const canvases = ["canvas-house-1", "canvas-house-2", "canvas-house-3"];
+
+  canvases.forEach((id, index) => {
+    const canvas = document.getElementById(id);
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, 150, 150);
+    ctx.save();
+    ctx.translate(75, 90);
+    ctx.scale(scales[index], scales[index]);
+    drawOneHouse(ctx);
+    ctx.restore();
+  });
+}
+
+//работа с изображением
+// Создаем объект картинки
+const img = new Image();
+img.src = "../img/tree.png";
+
+// Задание 7: Просто разместить
+function drawExternalImage() {
+  const ctx = document.getElementById("canvas-img-1").getContext("2d");
+  ctx.clearRect(0, 0, 300, 200);
+  // drawImage(картинка, x, y, ширина, высота)
+  ctx.drawImage(img, 0, 0, 300, 200);
+}
+
+// Задание 8: Замостить холст (Мозаика)
+function drawMosaic() {
+  const ctx = document.getElementById("canvas-img-2").getContext("2d");
+  ctx.clearRect(0, 0, 400, 300);
+
+  const tileWidth = 100;
+  const tileHeight = 75;
+
+  // Циклы для создания сетки (4 колонки, 4 ряда)
+  for (let h = 0; h < 4; h++) {
+    for (let w = 0; w < 4; w++) {
+      ctx.drawImage(img, w * tileWidth, h * tileHeight, tileWidth, tileHeight);
+    }
+  }
+}
+
+// Задание 9: Вырезать часть
+function drawCroppedImage() {
+  const ctx = document.getElementById("canvas-img-3").getContext("2d");
+  ctx.clearRect(0, 0, 200, 300);
+  const srcX = 300; // отступ слева
+  const srcY = 150; // отступ сверху
+  const srcW = 150; // ширина вырезаемого куска
+  const srcH = 250; // высота вырезаемого куска
+
+  // drawImage(img, srcX, srcY, srcW, srcH, destX, destY, destW, destH)
+  ctx.drawImage(
+    img,
+    srcX,
+    srcY,
+    srcW,
+    srcH, // Что вырезаем из оригинала
+    0,
+    0,
+    200,
+    300, // Куда вставляем и какого размера
+  );
+}
+// задание 10
+const canvas = document.getElementById("capture-canvas");
+const context = canvas.getContext("2d");
+const video = document.getElementById("myVideo");
+const snapBtn = document.getElementById("snap-btn");
+
+// При клике на кнопку берем текущий кадр из видео и рисуем его на холсте
+snapBtn.onclick = () => {
+  // Очищаем холст перед новым снимком
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Главная магия: передаем видео в качестве источника изображения
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  // Добавляем эффект белой вспышки для красоты
+  context.fillStyle = "rgba(255, 255, 255, 0.5)";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Убираем вспышку через 100 миллисекунд
+  setTimeout(() => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  }, 100);
+};

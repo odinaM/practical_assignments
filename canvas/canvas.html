@@ -31,47 +31,49 @@
             <!-- ЛЕВАЯ КОЛОНКА -->
             <div class="student-work-container">
                 <h2 class="work-title">Практическая работа: Рисование на Canvas</h2>
-                <p class="text_work">В этой работе я изучил основы рисования геометрических фигур на HTML5 Canvas.</p>
+                <p class="text_work">В этой работе я изучил основы рисования фигур и работы с изображениями на HTML5
+                    Canvas.</p>
 
                 <div class="student-work">
-                    <!-- рисование прямых линий -->
+
+                    <!-- 1. ПРЯМЫЕ ЛИНИИ -->
                     <div class="canvas-block">
                         <p class="task-title">1. Прямые линии (многоугольник)</p>
                         <canvas id="canvas-1" width="200" height="200" class="canvas-item"></canvas>
                         <button onclick="createImage()" class="btn-task">Посмотреть</button>
                     </div>
 
-                    <!-- рисование дуг и кривых -->
+                    <!-- 2. ДУГИ И КРИВЫЕ -->
                     <div class="canvas-block">
                         <p class="task-title">2. Дуги и кривые</p>
                         <canvas id="canvas-2" width="200" height="200" class="canvas-item"></canvas>
                         <button onclick="createImageArc()" class="btn-task">Посмотреть</button>
                     </div>
 
-                    <!-- рисование кривых Безье -->
+                    <!-- 3. КРИВЫЕ БЕЗЬЕ -->
                     <div class="canvas-block">
                         <p class="task-title">3. Кривые Безье</p>
                         <canvas id="canvas-3" width="250" height="150" class="canvas-item"></canvas>
                         <button onclick="createImageBezier()" class="btn-task">Посмотреть</button>
                     </div>
 
-                    <!-- работа со стилями линий -->
+                    <!-- 4. СТИЛИ ЛИНИЙ -->
                     <div class="canvas-block">
                         <p class="task-title">4. Стили линий</p>
                         <canvas id="canvas-4" width="200" height="100" class="canvas-item"></canvas>
                         <button onclick="createImageLiner()" class="btn-task">Посмотреть</button>
                     </div>
 
-                    <!-- ЗАДАНИЕ 1: Квадраты -->
+                    <!-- 5. КВАДРАТЫ РАЗНОГО РАЗМЕРА -->
                     <div class="canvas-block" style="max-width: 100%;">
-                        <p class="task-title">Задание 1. Квадраты разного размера</p>
+                        <p class="task-title">5. Квадраты разного размера</p>
                         <canvas id="canvas-squares" width="400" height="150" class="canvas-item"></canvas>
-                        <button onclick="drawSquares()" class="btn-task">Нарисовать квадраты</button>
+                        <button onclick="drawSquares()" class="btn-task">Нарисовать</button>
                     </div>
 
-                    <!-- ЗАДАНИЕ 2: Дом в трех масштабах -->
+                    <!-- 6. ДОМ В МАСШТАБАХ -->
                     <div class="canvas-block" style="max-width: 100%;">
-                        <p class="task-title">Задание 2. Дом в масштабах (1:1, 1:2, 2:1)</p>
+                        <p class="task-title">6. Дом в масштабах (1:1, 1:2, 2:1)</p>
                         <div class="canvas-row">
                             <div class="canvas-scale-box">
                                 <canvas id="canvas-house-1" width="150" height="150" class="canvas-item"></canvas>
@@ -79,17 +81,59 @@
                             </div>
                             <div class="canvas-scale-box">
                                 <canvas id="canvas-house-2" width="150" height="150" class="canvas-item"></canvas>
-                                <p class="canvas-caption">Уменьшенный (1:2)</p>
+                                <p class="canvas-caption">1:2</p>
                             </div>
                             <div class="canvas-scale-box">
                                 <canvas id="canvas-house-3" width="150" height="150" class="canvas-item"></canvas>
-                                <p class="canvas-caption">Увеличенный (2:1)</p>
+                                <p class="canvas-caption">2:1</p>
                             </div>
                         </div>
-                        <button onclick="drawHouses()" class="btn-task" style="margin-top: 15px;">Нарисовать
-                            дома</button>
+                        <button onclick="drawHouses()" class="btn-task" style="margin-top: 15px;">Нарисовать</button>
                     </div>
 
+                    <!-- 7. РАЗМЕЩЕНИЕ ВНЕШНЕГО ИЗОБРАЖЕНИЯ -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">7. Размещение внешнего изображения</p>
+                        <canvas id="canvas-img-1" width="300" height="200" class="canvas-item"></canvas>
+                        <button onclick="drawExternalImage()" class="btn-task">Показать</button>
+                    </div>
+
+                    <!-- 8. ЗАМОСТИТЬ ХОЛСТ (МОЗАИКА) -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">8. Замостить холст (мозаика)</p>
+                        <canvas id="canvas-img-2" width="400" height="300" class="canvas-item"></canvas>
+                        <button onclick="drawMosaic()" class="btn-task">Показать</button>
+                    </div>
+
+                    <!-- 9. ВЫРЕЗАНИЕ ЧАСТИ ИЗОБРАЖЕНИЯ -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">9. Вырезание части изображения</p>
+                        <canvas id="canvas-img-3" width="200" height="300" class="canvas-item"></canvas>
+                        <button onclick="drawCroppedImage()" class="btn-task">Показать</button>
+                    </div>
+                    <!-- 10. ЗАХВАТ ИЗОБРАЖЕНИЯ С ВИДЕО -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">10. Захват изображения с видео</p>
+                        <div class="canvas-row">
+                            <div class="canvas-scale-box">
+                                <!-- Вставляем видеоплеер -->
+                                <video id="myVideo" width="300" height="200" controls muted autoplay loop
+                                    style="border-radius: var(--radius-sm); border: 2px solid var(--border-light);">
+                                    <!-- Ссылка на видео с котиками -->
+                                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                                    Ваш браузер не поддерживает видео.
+                                </video>
+                                <p class="canvas-caption">Видео с котиком</p>
+                            </div>
+
+                            <div class="canvas-scale-box">
+                                <!-- Холст для снимка -->
+                                <canvas id="capture-canvas" width="300" height="200" class="canvas-item"></canvas>
+                                <p class="canvas-caption">Снимок</p>
+                                <button id="snap-btn" class="btn-task" style="margin-top: 10px;">Сделать снимок</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
