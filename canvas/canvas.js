@@ -147,9 +147,6 @@ function drawHouses() {
   ctx3.restore();
 }
 
-// ==========================================
-// ЗАДАНИЕ 1: Квадраты
-// ==========================================
 function drawSquares() {
   const canvas = document.getElementById("canvas-squares");
   const ctx = canvas.getContext("2d");
@@ -174,9 +171,6 @@ function drawSquares() {
   });
 }
 
-// ==========================================
-// ЗАДАНИЕ 2: Дома
-// ==========================================
 function drawOneHouse(ctx) {
   ctx.fillStyle = "#F4A460";
   ctx.fillRect(-40, -20, 80, 60);
@@ -297,3 +291,215 @@ snapBtn.onclick = () => {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
   }, 100);
 };
+
+let anim1Id,
+  anim2Id,
+  anim2X = 0;
+
+//  Задание 11: Движение
+function startAnim1() {
+  const canvas = document.getElementById("canvas-anim-1");
+  const ctx = canvas.getContext("2d");
+  let x = 0;
+
+  if (anim1Id) cancelAnimationFrame(anim1Id); // Останавливаем предыдущую, если была
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#F4A460";
+    ctx.beginPath();
+    ctx.arc(x, 50, 10, 0, Math.PI * 2);
+    ctx.fill();
+
+    x += 2;
+    if (x > canvas.width + 10) x = -10;
+
+    anim1Id = requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// Задание 12: График Синус/Косинус
+function startAnim2() {
+  const canvas = document.getElementById("canvas-anim-2");
+  const ctx = canvas.getContext("2d");
+  anim2X = 0;
+
+  if (anim2Id) cancelAnimationFrame(anim2Id);
+
+  function animate() {
+    // Не очищаем холст полностью, чтобы график "рисовался" по мере движения
+    if (anim2X === 0) ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Синус (синий)
+    ctx.fillStyle = "blue";
+    ctx.fillRect(anim2X, Math.sin(anim2X * 0.05) * 50 + 100, 3, 3);
+
+    // Косинус (красный)
+    ctx.fillStyle = "red";
+    ctx.fillRect(anim2X, Math.cos(anim2X * 0.05) * 50 + 100, 3, 3);
+
+    anim2X += 1;
+
+    if (anim2X <= canvas.width) {
+      anim2Id = requestAnimationFrame(animate);
+    }
+  }
+  animate();
+}
+
+// Задание 13: График Параболы
+function drawParabola() {
+  const canvas = document.getElementById("canvas-graph");
+  const ctx = canvas.getContext("2d");
+
+  // Получаем значения из полей
+  const a = Number(document.getElementById("input-a").value);
+  const b = Number(document.getElementById("input-b").value);
+  const c = Number(document.getElementById("input-c").value);
+  const xMin = Number(document.getElementById("input-xmin").value);
+  const xMax = Number(document.getElementById("input-xmax").value);
+  const yMin = Number(document.getElementById("input-ymin").value);
+  const yMax = Number(document.getElementById("input-ymax").value);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Масштабирование и центрирование
+  // Переносим начало координат в центр холста (с учетом границ)
+  const scaleX = canvas.width / (xMax - xMin);
+  const scaleY = canvas.height / (yMax - yMin);
+
+  // Функция перевода координат математических в экранные
+  function toScreenX(x) {
+    return (x - xMin) * scaleX;
+  }
+  // В Canvas ось Y идет вниз, поэтому инвертируем
+  function toScreenY(y) {
+    return canvas.height - (y - yMin) * scaleY;
+  }
+
+  // 1. Рисуем сетку
+  ctx.strokeStyle = "#e0e0e0";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  // Вертикальные линии
+  for (let x = Math.ceil(xMin); x <= xMax; x++) {
+    ctx.moveTo(toScreenX(x), 0);
+    ctx.lineTo(toScreenX(x), canvas.height);
+  }
+  // Горизонтальные линии
+  for (let y = Math.ceil(yMin); y <= yMax; y++) {
+    ctx.moveTo(0, toScreenY(y));
+    ctx.lineTo(canvas.width, toScreenY(y));
+  }
+  ctx.stroke();
+
+  // 2. Рисуем оси
+  ctx.strokeStyle = "#000";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  // Ось X
+  if (yMin <= 0 && yMax >= 0) {
+    ctx.moveTo(0, toScreenY(0));
+    ctx.lineTo(canvas.width, toScreenY(0));
+  }
+  // Ось Y
+  if (xMin <= 0 && xMax >= 0) {
+    ctx.moveTo(toScreenX(0), 0);
+    ctx.lineTo(toScreenX(0), canvas.height);
+  }
+  ctx.stroke();
+
+  // Подписи осей
+  ctx.fillStyle = "#000";
+  ctx.font = "12px Nunito";
+  if (xMin <= 0 && xMax >= 0) {
+    ctx.fillText("0", toScreenX(0) + 5, toScreenY(0) + 15);
+  }
+
+  // 3. Рисуем сам график
+  ctx.beginPath();
+  ctx.strokeStyle = "#d9534f"; // Красный цвет как на скрине
+  ctx.lineWidth = 2;
+
+  let isFirst = true;
+  // Шаг для плавности
+  const step = (xMax - xMin) / 500;
+
+  for (let x = xMin; x <= xMax; x += step) {
+    const y = a * x * x + b * x + c;
+
+    // Ограничиваем рисование, чтобы не вылезать за пределы сильно
+    if (y >= yMin - 10 && y <= yMax + 10) {
+      if (isFirst) {
+        ctx.moveTo(toScreenX(x), toScreenY(y));
+        isFirst = false;
+      } else {
+        ctx.lineTo(toScreenX(x), toScreenY(y));
+      }
+    } else {
+      isFirst = true; // Если вышли за границу, начинаем новую линию при возвращении
+    }
+  }
+  ctx.stroke();
+}
+
+function clearParabola() {
+  const canvas = document.getElementById("canvas-graph");
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+// Задание 14: Столбчатая диаграмма
+function drawBars() {
+  const canvas = document.getElementById("canvas-bars");
+  const ctx = canvas.getContext("2d");
+
+  const valJS = Number(document.getElementById("js-val").value);
+  const valPHP = Number(document.getElementById("php-val").value);
+  const valPython = Number(document.getElementById("python-val").value);
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Фон как на картинке
+  ctx.fillStyle = "#2b2b36";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Рамка вокруг графика
+  ctx.strokeStyle = "#444";
+  ctx.lineWidth = 1;
+  ctx.strokeRect(50, 20, 320, 200);
+
+  // Данные для столбцов
+  const data = [
+    { label: "JAVASCRIPT", value: valJS, color: "#aebdf2" },
+    { label: "PHP", value: valPHP, color: "#8cd8cf" },
+    { label: "PYTHON", value: valPython, color: "#f2e291" },
+  ];
+
+  const barWidth = 40;
+  const maxBarHeight = 160;
+  const startX = 100;
+  const bottomY = 220;
+
+  data.forEach((item, index) => {
+    // Ограничиваем максимум 100%
+    const percent = Math.min(item.value, 100);
+    const barHeight = (percent / 100) * maxBarHeight;
+    const x = startX + index * 90;
+
+    // Рисуем столбец
+    ctx.fillStyle = item.color;
+    ctx.fillRect(x, bottomY - barHeight, barWidth, barHeight);
+
+    // Рисуем подпись (вертикально)
+    ctx.save();
+    ctx.translate(x + barWidth / 2, bottomY - 10);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillStyle = "#fff";
+    ctx.font = "12px Nunito";
+    ctx.textAlign = "left";
+    ctx.fillText(item.label, 0, 5);
+    ctx.restore();
+  });
+}

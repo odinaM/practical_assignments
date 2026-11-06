@@ -133,7 +133,7 @@ body {
 }
 
 .task-input {
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: 1px solid var(--text-muted);
     border-radius: var(--radius);
     font-family: inherit;
