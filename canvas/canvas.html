@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: Canvas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../canvas/canvas.css">
+    <link rel="stylesheet" href="../forms/form.css">
+</head>
+
+<body>
+
+    <!-- шапка -->
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Кнопка "Назад" -->
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <!-- Макет из двух колонок -->
+        <div class="work-layout">
+
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div class="student-work-container">
+                <h2 class="work-title">Практическая работа: Рисование на Canvas</h2>
+                <p class="text_work">В этой работе я изучил основы рисования геометрических фигур на HTML5 Canvas.</p>
+
+                <div class="student-work">
+                    <!-- рисование прямых линий -->
+                    <div class="canvas-block">
+                        <p class="task-title">1. Прямые линии (многоугольник)</p>
+                        <canvas id="canvas-1" width="200" height="200" class="canvas-item"></canvas>
+                        <button onclick="createImage()" class="btn-task">Посмотреть</button>
+                    </div>
+
+                    <!-- рисование дуг и кривых -->
+                    <div class="canvas-block">
+                        <p class="task-title">2. Дуги и кривые</p>
+                        <canvas id="canvas-2" width="200" height="200" class="canvas-item"></canvas>
+                        <button onclick="createImageArc()" class="btn-task">Посмотреть</button>
+                    </div>
+
+                    <!-- рисование кривых Безье -->
+                    <div class="canvas-block">
+                        <p class="task-title">3. Кривые Безье</p>
+                        <canvas id="canvas-3" width="250" height="150" class="canvas-item"></canvas>
+                        <button onclick="createImageBezier()" class="btn-task">Посмотреть</button>
+                    </div>
+
+                    <!-- работа со стилями линий -->
+                    <div class="canvas-block">
+                        <p class="task-title">4. Стили линий</p>
+                        <canvas id="canvas-4" width="200" height="100" class="canvas-item"></canvas>
+                        <button onclick="createImageLiner()" class="btn-task">Посмотреть</button>
+                    </div>
+
+                    <!-- ЗАДАНИЕ 1: Квадраты -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">Задание 1. Квадраты разного размера</p>
+                        <canvas id="canvas-squares" width="400" height="150" class="canvas-item"></canvas>
+                        <button onclick="drawSquares()" class="btn-task">Нарисовать квадраты</button>
+                    </div>
+
+                    <!-- ЗАДАНИЕ 2: Дом в трех масштабах -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">Задание 2. Дом в масштабах (1:1, 1:2, 2:1)</p>
+                        <div class="canvas-row">
+                            <div class="canvas-scale-box">
+                                <canvas id="canvas-house-1" width="150" height="150" class="canvas-item"></canvas>
+                                <p class="canvas-caption">Масштаб 1:1</p>
+                            </div>
+                            <div class="canvas-scale-box">
+                                <canvas id="canvas-house-2" width="150" height="150" class="canvas-item"></canvas>
+                                <p class="canvas-caption">Уменьшенный (1:2)</p>
+                            </div>
+                            <div class="canvas-scale-box">
+                                <canvas id="canvas-house-3" width="150" height="150" class="canvas-item"></canvas>
+                                <p class="canvas-caption">Увеличенный (2:1)</p>
+                            </div>
+                        </div>
+                        <button onclick="drawHouses()" class="btn-task" style="margin-top: 15px;">Нарисовать
+                            дома</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА -->
+            <div class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+    <script src="../canvas/canvas.js"></script>
+</body>
+
+</html>

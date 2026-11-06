@@ -1,0 +1,93 @@
+.canvas-block {
+    margin-bottom: 25px;
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.canvas-item {
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background-color: #fff;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Кнопка под холстом */
+.canvas-block .btn-task {
+    margin-top: 10px;
+}
+
+.canvas-block {
+    margin-bottom: 25px;
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.canvas-item {
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background-color: #fff;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Кнопка под холстом */
+.canvas-block .btn-task {
+    margin-top: 10px;
+}
+
+/* Стили для холстов */
+.canvas-block {
+    margin-bottom: 30px;
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    text-align: center;
+}
+
+.canvas-item {
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    background-color: #fff;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Сетка для трех домов */
+.canvas-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.canvas-scale-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-caption {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+}

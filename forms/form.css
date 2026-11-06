@@ -104,11 +104,13 @@ body {
 .student-work-container .text_work {
     margin-bottom: 10px;
     font-weight: 700;
+    font-size: 16px;
 }
 
 .work-info-text {
     color: var(--text-muted);
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .student-work {
