@@ -29,8 +29,6 @@ footer {
     justify-content: center;
     align-items: center;
     height: 100px;
-
-    background-color: #DDE8FF;
 }
 
 .title_header_s {
@@ -40,10 +38,7 @@ footer {
     height: 100px;
 }
 
-.logo {
-    font-size: 46px;
-    font-weight: 800;
-}
+
 
 .blue_logo {
     color: #051AFF;
@@ -69,7 +64,6 @@ main {
     background-color: #FF0000;
     border-radius: 10px;
     border: none;
-    color: white;
     font-size: 20px;
     cursor: pointer;
     display: flex;
@@ -198,7 +192,7 @@ textarea {
 }
 
 .r_card_r {
-    width: 100%;
+    /*width: 100%;*/
     max-width: 600px;
     background-color: #FFFFFF;
     border-radius: 30px;
@@ -211,7 +205,6 @@ textarea {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    background-color: #DDE8FF;
 }
 
 .auto_r {
@@ -332,6 +325,7 @@ textarea.invalid {
 a {
     text-decoration: none;
     cursor: pointer;
+    color: white;
 }
 
 body {
@@ -378,12 +372,11 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     height: 85vh;
-    /* Высота карточки с сайтом */
 }
 
 .project-iframe {
     width: 100%;
-    height: 100%;
+    height: 120%;
     border: none;
     display: block;
 }
