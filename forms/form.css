@@ -104,11 +104,13 @@ body {
 .student-work-container .text_work {
     margin-bottom: 10px;
     font-weight: 700;
+    font-size: 16px;
 }
 
 .work-info-text {
     color: var(--text-muted);
     margin-bottom: 10px;
+    font-size: 16px;
 }
 
 .student-work {
@@ -131,7 +133,7 @@ body {
 }
 
 .task-input {
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: 1px solid var(--text-muted);
     border-radius: var(--radius);
     font-family: inherit;

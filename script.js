@@ -96,7 +96,7 @@ const works = [
     title: "Canvas",
     desc: "Canvas — это HTML5 элемент веб-страницы, который позволяет рисовать двухмерную и трехмерную графику,",
     icon: "",
-    url: "noviolations/no_violations.html",
+    url: "canvas/canvas.html",
   },
 ];
 
