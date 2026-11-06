@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: Drag and Drop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="../drag_and_drop/drag_and_drop.css">
+</head>
+
+<body>
+
+    <!-- шапка -->
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- кнопка назад -->
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <!-- макет из двух колонок -->
+        <div class="work-layout">
+
+            <!-- левая колонка -->
+            <div class="student-work-container">
+                <h2 class="work-title">Практическая работа: Drag and Drop</h2>
+                <p class="text_work">В этой работе изучены механизмы перетаскивания элементов (Drag and Drop API) и
+                    созданы интерактивные мини-игры</p>
+
+                <div class="student-work">
+
+                    <!-- ЗАДАНИЕ 1: Базовое перетаскивание -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">1. Базовое перетаскивание между контейнерами</p>
+                        <div class="dnd-container" style="display: flex; justify-content: center; gap: 20px;">
+                            <!-- Источник -->
+                            <div class="dnd-box" id="source-box" ondragover="allowDrop(event)"
+                                ondrop="drop(event, 'source-box')">
+                                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="item-1">Текст 1
+                                </div>
+                                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="item-2">Текст 2
+                                </div>
+                                <div class="drag-item" draggable="true" ondragstart="drag(event)" id="item-3">Текст 3
+                                </div>
+                            </div>
+                            <!-- Цель -->
+                            <div class="dnd-box" id="target-box" ondragover="allowDrop(event)"
+                                ondrop="drop(event, 'target-box')">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ЗАДАНИЕ 2: Собери слово -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">2. Игра «Собери слово»</p>
+                        <p style="text-align: center; font-size: 14px; color: #777;">Перетащи буквы в пустые слоты,
+                            чтобы получилось слово</p>
+
+                        <!-- Слоты для букв -->
+                        <div class="word-slots">
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                            <div class="slot" ondrop="dropLetter(event)" ondragover="allowDrop(event)"></div>
+                        </div>
+
+                        <!-- Буквы -->
+                        <div class="letters-pool">
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l1">К</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l2">Н</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l3">И</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l4">О</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l5">К</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l6">Т</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l7">С</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l8">О</div>
+                            <div class="letter" draggable="true" ondragstart="drag(event)" id="l9">С</div>
+                        </div>
+
+                        <button onclick="checkWord()" class="btn-task" style="margin-top: 15px;">Проверить</button>
+                        <p id="word-result" style="font-weight: bold; margin-top: 10px; text-align: center;"></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- правая колонка -->
+            <div class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- скрипты -->
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+    <script src="./drag_and_drop.js"></script>
+</body>
+
+</html>
