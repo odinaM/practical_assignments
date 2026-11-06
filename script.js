@@ -89,7 +89,7 @@ const works = [
     title: "Drag and Drop",
     desc: "Drag-and-drop (с английского — «тащи и бросай» или «перетащи и отпусти») — это способ управления элементами на экране компьютера или смартфона с помощью мыши, тачпада или пальца",
     icon: "",
-    url: "noviolations/no_violations.html",
+    url: "drag_and_drop/drag_and_drop.html",
   },
   {
     id: 14,
