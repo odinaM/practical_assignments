@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа: Сборка блок-схемы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../forms/form.css">
+    <link rel="stylesheet" href="../drag_and_drop/drag_and_drop.css">
+</head>
+
+<body>
+
+    <!-- шапка -->
+    <header class="header">
+        <div class="logo">MIDIS <span>IT</span></div>
+        <nav class="nav">
+            <a href="../index.html" class="nav-link">Главная</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- кнопка назад -->
+        <a href="../index.html" class="btn_back">← Назад к списку</a>
+
+        <!-- макет из двух колонок -->
+        <div class="work-layout">
+
+            <!-- левая колонка -->
+            <div class="student-work-container">
+                <h2 class="work-title">Практическая работа: Сборка блок-схемы</h2>
+                <p class="text_work">В этой работе изучены механизмы перетаскивания элементов (Drag and Drop) и
+                    создана интерактивная игра по сборке блок-схемы из карточек.</p>
+
+                <div class="student-work">
+
+                    <!-- cборка блок-схемы по фото -->
+                    <div class="canvas-block" style="max-width: 100%;">
+                        <p class="task-title">Соберите блок-схему</p>
+                        <p style="text-align: center; font-size: 14px; color: #777;">
+                            Перетащите карточки из левого контейнера в ячейки сетки в правильном порядке
+                        </p>
+
+                        <div class="flow-game">
+                            <!-- Левый контейнер (источник) -->
+                            <div class="flow-column">
+                                <div class="flow-column-title">Карточки:</div>
+                                <div id="source" class="source-container" ondragover="return dragOver(event)"
+                                    ondrop="return dragDrop(event)">
+                                    <!-- ВСТАВЬТЕ СВОИ ФОТО СЮДА -->
+                                    <img id="card1" class="cards" src="../img/img1.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 1">
+                                    <img id="card2" class="cards" src="../img/img2.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 2">
+                                    <img id="card3" class="cards" src="../img/img3.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 3">
+                                    <img id="card4" class="cards" src="../img/img4.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 4">
+                                    <img id="card5" class="cards" src="../img/img5.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 5">
+                                    <img id="card6" class="cards" src="../img/img6.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 6">
+                                    <img id="card7" class="cards" src="../img/img7.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 7">
+                                    <img id="card8" class="cards" src="../img/img8.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 8">
+                                    <img id="card9" class="cards" src="../img/img9.png" draggable="true"
+                                        ondragstart="return dragStart(event)" alt="Блок 9">
+                                </div>
+                            </div>
+
+                            <!-- Правый контейнер (сетка) -->
+                            <div class="flow-column flow-column-target">
+                                <div class="flow-column-title">Соберите схему:</div>
+                                <div id="target" class="target-container" ondragover="return dragOver(event)"
+                                    ondragleave="return dragLeave(event)">
+                                    <!-- 9 ячеек. data-correct указывает правильную картинку -->
+                                    <div class="cell" data-correct="card1" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                    <div class="cell" data-correct="card2" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                    <div class="cell" data-correct="card3" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+
+                                    <div class="cell" data-correct="card4" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                    <div class="cell" data-correct="card5" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                    <div class="cell" data-correct="card6" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+
+                                    <div class="cell" data-correct="card7" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                    <div class="cell" data-correct="card8" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                    <div class="cell" data-correct="card9" ondragover="return dragOver(event)"
+                                        ondrop="return dragDrop(event)"></div>
+                                </div>
+
+                                <!-- Кнопка проверки -->
+                                <button class="btn-task" onclick="checkAll()"
+                                    style="margin-top: 15px;">Проверить</button>
+                            </div>
+                        </div>
+
+                        <p id="flow-result" style="font-weight: bold; margin-top: 10px; text-align: center;"></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- правая колонка -->
+            <div class="work-info">
+                <h2 class="work-title">Оценка преподавателя</h2>
+                <p class="work-info-text">Поставьте оценку от 1 до 5 и оставьте комментарий.</p>
+
+                <div class="grading-panel">
+                    <h4 class="grading-title">Ваша оценка:</h4>
+                    <div class="stars" id="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+
+                    <h4 class="grading-title">Комментарий:</h4>
+                    <textarea id="comment-box" class="comment-box" placeholder="Напишите отзыв о работе..."></textarea>
+
+                    <button class="btn btn-save" onclick="saveGrade()">Сохранить оценку</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- модальное окно результата -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <div id="modalIcon"></div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+            <button class="btn-task" onclick="closeModal()">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- скрипты -->
+    <script src="../grade.js"></script>
+    <script src="../script.js"></script>
+    <script src="./drag_and_drop.js"></script>
+</body>
+
+</html>
