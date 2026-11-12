@@ -94,9 +94,16 @@ const works = [
   {
     id: 14,
     title: "Canvas",
-    desc: "Canvas — это HTML5 элемент веб-страницы, который позволяет рисовать двухмерную и трехмерную графику,",
+    desc: "Canvas — это HTML5 элемент веб-страницы, который позволяет рисовать двухмерную и трехмерную графику",
     icon: "",
     url: "canvas/canvas.html",
+  },
+  {
+    id: 15,
+    title: "Практическая работа №4: Drag and Drop с проверкой",
+    desc: "Практическая проверка полученных знаний по анимации на Drag and Drop",
+    icon: "",
+    url: "drag_and_drop/drag_and_drop-pr.html",
   },
 ];
 
